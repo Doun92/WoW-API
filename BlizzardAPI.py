@@ -6,7 +6,6 @@ class BlizzardApi:
     
     def __init__(self):
         self.access_token = self._request_token()
-        # self.oauth_token = self.exchange_code_for_token()
         self.basic_url = "https://eu.api.blizzard.com/"
         self.token_url = "https://oauth.battle.net/token"
     
@@ -65,12 +64,21 @@ class BlizzardApi:
             raise Exception(f"Erreur {response.status_code}: {response.text}")
 
         token_data = response.json()
-        print(token_data)
+        
         self.access_token = token_data["access_token"]
         
         return token_data
     
     def get_profile_summary(self):
+        """
+        Permet d'avoir accès à des informations générales sur mon compte.
+
+        Raises:
+            Exception: L'erreur indique que le token temporaire doit être refresh
+
+        Returns:
+            JSON : La réponse de la requête
+        """
         headers = {
             "Authorization": f"Bearer {self.access_token}"
         }
