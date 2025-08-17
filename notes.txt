@@ -1,0 +1,18 @@
+En-têtes de la requêtes json
+
+
+GET /hearthstone/cards?class=all&pageSize=350&set=legacy&sort=manaCost%3Aasc%2Cname%3Aasc%2Cclasses%3Aasc%2CgroupByClass%3Aasc&locale=en_US HTTP/1.1
+Host: api.blizzard.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br
+Referer: https://hearthstone.blizzard.com/en-us/cards?set=legacy
+Content-Type: application/json
+Authorization: Bearer EU0t5QWz3O8WoHLWQRj5eHMcGZIIRKUSfy
+Origin: https://hearthstone.blizzard.com
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+If-None-Match: W/"45ea2-iE/yTf/3uhHMUHMvolOYlmEtkYk"
