@@ -1,9 +1,11 @@
 from BlizzardAPI import BlizzardApi
 from FilesHandler import FilesHandler
+from DataHandler import JsonHandler
 
 # Connect to the objects
 blizzard_api = BlizzardApi()
 files_handler = FilesHandler()
+data_handler = JsonHandler()
 
 def get_profile_summary():
     code = input("Code temporaire: ")
