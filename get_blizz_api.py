@@ -1,11 +1,9 @@
 from BlizzardAPI import BlizzardApi
 from FilesHandler import FilesHandler
-from DataHandler import JsonHandler
 
 # Connect to the objects
 blizzard_api = BlizzardApi()
 files_handler = FilesHandler()
-data_handler = JsonHandler()
 
 def get_profile_summary():
     code = input("Code temporaire: ")
@@ -22,6 +20,3 @@ def get_profile_summary():
     # https://oauth.battle.net/authorize?client_id=<CLIENT_ID>&redirect_uri=http://localhost:5000/callback&response_type=code&scope=wow.profile
 
 get_profile_summary()
-
-
-
