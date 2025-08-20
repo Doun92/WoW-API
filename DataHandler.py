@@ -13,6 +13,24 @@ class JsonHandler:
         for account in wow_accounts:
             for character in account["characters"]:
                 print(character)
+                # Href
+                print(character["character"]["href"])
+                # Faction
+                print(character["faction"]["name"])
+                # Genre
+                if character["gender"]["type"] == "FEMALE":
+                    print("F")
+                else:
+                    print("M")
+                # id
+                print(character["id"])
+                print(character["level"])
+                print(character["name"])
+                print(character["playable_class"]["name"])
+                print(character["playable_race"]["name"])
+                print(character["protected_character"]["href"])
+                print(character["realm"]["name"])
+                
         # TODO: return a list
 
     def create_table(self, file:str):
