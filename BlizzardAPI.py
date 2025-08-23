@@ -103,11 +103,12 @@ class BlizzardApi:
             "namespace": "profile-eu",
             "locale": "fr_FR",
         }
-        
-        url = f"{self.basic_url}/profile/user/wow/protected-character/{realm_id}-{char_id}"
+
+        url = f"{self.basic_url}profile/user/wow/protected-character/{realm_id}-{char_id}?namespace=profile-eu&locale=fr_FR"
+
         response = requests.get(url, headers=headers, params=params)
         
         if response.status_code != 200:
-            raise Exception(f"Erreur {response.status_code}: {response.text}")
+            raise Exception(f"Erreur {response.status_code}")
 
         return response.json()

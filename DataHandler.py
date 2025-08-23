@@ -60,3 +60,14 @@ class JsonHandler:
                 
             df = self._generate_table(data, columns=columns)
             df.to_csv(f"{self.data_folder}\\tables\\{self.data_type}.csv", encoding="utf8")
+            
+class CSVHandler:
+    
+    def __init__(self, data_folder: str = f"{os.getcwd()}\\data", data_type:str=None):
+        self.data_folder = data_folder
+        self.data_type = data_type
+        
+    def get_protected_char_info(self):
+        # with open(f"{self.data_folder}\\tables\\profile_summary.csv", "r", encoding="utf8") as file:
+        df = pd.read_csv(f"{self.data_folder}\\tables\\profile_summary.csv")
+        return df[["name","id","royaume_id"]]
