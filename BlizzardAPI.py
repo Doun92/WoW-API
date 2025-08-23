@@ -94,3 +94,20 @@ class BlizzardApi:
             raise Exception(f"Erreur {response.status_code}: {response.text}")
 
         return response.json()
+    
+    def get_protected_character_summary(self, realm_id, char_id):
+        headers = {
+            "Authorization": f"Bearer {self.access_token}"
+        }
+        params = {
+            "namespace": "profile-eu",
+            "locale": "fr_FR",
+        }
+        
+        url = f"{self.basic_url}/profile/user/wow/protected-character/{realm_id}-{char_id}"
+        response = requests.get(url, headers=headers, params=params)
+        
+        if response.status_code != 200:
+            raise Exception(f"Erreur {response.status_code}: {response.text}")
+
+        return response.json()

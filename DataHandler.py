@@ -36,7 +36,8 @@ class JsonHandler:
                 perso.append(character["playable_race"]["name"])
                 # référence protégée
                 perso.append(character["protected_character"]["href"])
-                # nom du royaume
+                # Royaume
+                perso.append(character["realm"]["id"])
                 perso.append(character["realm"]["name"])
                 mes_persos.append(perso)
         return mes_persos
@@ -51,7 +52,7 @@ class JsonHandler:
         with open(f"{self.data_folder}\\{file}", "r", encoding="utf8") as raw_data:
             json_data = json.load(raw_data)
             if self.data_type == "profile_summary":
-                columns = ["character_href","faction","gender","id","level","name","classe","race","protected_href","royaume"]
+                columns = ["character_href","faction","gender","id","level","name","classe","race","protected_href","royaume_id","royaume_nom"]
                 data = self._explore_profile_summary(json_data)
             else:
                 columns = []
