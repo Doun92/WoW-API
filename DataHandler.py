@@ -46,6 +46,10 @@ class JsonHandler:
         df = pd.DataFrame(data, columns=columns)
         return df
 
+    def _explore_protected_char_data(self, data:dict):
+        print(data["character"]["id"])
+        
+
     def create_table(self, file:str):
         print(f"{self.data_folder}\\{file}")
         
@@ -54,12 +58,15 @@ class JsonHandler:
             if self.data_type == "profile_summary":
                 columns = ["character_href","faction","gender","id","level","name","classe","race","protected_href","royaume_id","royaume_nom"]
                 data = self._explore_profile_summary(json_data)
+            elif self.data_type == "protected_char_data":
+                columns = ["id","name","money","or_gagnée_niveau_max","or_perdu_niveau_max","morts_niveau_max","total_or_gagné","total_or_perdu","total_morts"]
+                data = self._explore_protected_char_data(json_data)
             else:
                 columns = []
                 data = []
                 
-            df = self._generate_table(data, columns=columns)
-            df.to_csv(f"{self.data_folder}\\tables\\{self.data_type}.csv", encoding="utf8")
+            # df = self._generate_table(data, columns=columns)
+            # df.to_csv(f"{self.data_folder}\\tables\\{self.data_type}.csv", encoding="utf8")
             
 class CSVHandler:
     
