@@ -72,16 +72,12 @@ class JsonHandler:
                 columns = ["character_href","faction","gender","id","level","name","classe","race","protected_href","royaume_id","royaume_nom"]
                 data = self._explore_profile_summary(json_data)
                 df = self._generate_table(data, columns=columns)
-                df.to_csv(f"{self.data_folder}\\tables\\{self.data_type}.csv", encoding="utf8")
+                df.to_csv(f"{self.data_folder}\\tables\\{self.data_type}.csv", encoding="utf8", index=False)
             elif self.data_type == "protected_char_data":
                 columns = ["id","name","argent_en_cours","argent_gagné_niveau","argent_perdu_niveau","argent_gagné_total","argent_perdu_total","morts_niveau","morts_total"]
-                data = self._explore_protected_char_data(json_data)
-                
-                # TODO: 
-                # Il faut gérer toutes les csv dans pandas complet
-                
-                # df = self._generate_table(data, columns=columns)
-                # df.to_csv(f"{self.data_folder}\\tables\\protected_data\\{json_data['name']}_{self.data_type}.csv", encoding="utf8")
+                data = self._explore_protected_char_data(json_data)                
+                df = self._generate_table([data], columns=columns)
+                df.to_csv(f"{self.data_folder}\\tables\\protected_data\\{json_data['name']}_{self.data_type}.csv", encoding="utf8", index=False)
             else:
                 columns = []
                 data = []
